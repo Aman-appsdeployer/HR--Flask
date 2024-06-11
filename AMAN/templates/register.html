@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+<style>
+    
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  height: 100%;
+}
+body{
+  display: grid;
+  place-items: center;
+  background: #dde1e7;
+  text-align: center;
+}
+.registration-form{
+  width: 430px;
+  padding: 40px 30px;
+  background: #dde1e7;
+  border-radius: 15px;
+  box-shadow: -3px -3px 7px #ffffff73,
+               2px 2px 5px rgba(94,104,121,0.288);
+}
+.registration-form .title{
+  font-size: 38px;
+  font-weight: 660;
+  margin-bottom: 35px;
+  color: #595959;
+}
+.input-field{
+  height: 50px;
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  position: relative;
+}
+.input-field:nth-child(2){
+  margin-top: 20px;
+}
+.input-field input{
+  height: 100%;
+  width: 100%;
+  padding-left: 45px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  background: #dde1e7;
+  color: #595959;
+  border-radius: 25px;
+  box-shadow: inset 2px 2px 5px #BABECC,
+              inset -5px -5px 10px #ffffff73;
+}
+.input-field input:focus{
+  box-shadow: inset 1px 1px 2px #BABECC,
+              inset -1px -1px 2px #ffffff73;
+}
+.input-field span{
+  position: absolute;
+  color: #595959;
+  width: 50px;
+  line-height: 50px;
+}
+.input-field label{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 45px;
+  pointer-events: none;
+  color: #666666;
+}
+.input-field input:valid ~ label{
+  opacity: 0;
+}
+.forgot-pass{
+  text-align: left;
+  margin: 10px 0 10px 5px;
+}
+.forgot-pass a{
+  font-size: 16px;
+  color: #3498db;
+  text-decoration: none;
+}
+.forgot-pass:hover a{
+  text-decoration: underline;
+}
+.submit-btn{
+  margin: 50px 10px 15px 10px;
+  width: 100%;
+  height: 80px;
+  font-size: 22px;
+  line-height: 50px;
+  font-weight: 600;
+  background:black;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #595959;
+  box-shadow: 2px 2px 5px #d8dff9,
+             -5px -5px 10px #ffffff73;
+}
+.submit-btn:focus{
+  color: #d9eaf5;
+  box-shadow: inset 2px 2px 5px #BABECC,
+             inset -5px -5px 10px #ffffff73;
+}
+.sign-up-link{
+  margin: 10px 0;
+  color: #595959;
+  font-size: 16px;
+}
+.sign-up-link a{
+  color: #199ff9;
+  text-decoration: none;
+}
+.sign-up-link a:hover{
+  text-decoration: underline;
+}
+</style>
+<body>
+    <div class="registration-form">
+        <div class="title">
+            Registration
+        </div>
+        <form method="POST" action="/register">
+            <!-- <h2>User Registration</h2> -->
+            <div class="input-field">
+                <i class="fa fa-user-plus"></i>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-field">
+                <i class="fa fa-user-plus"></i>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+            <div class="input-field">
+                <i class="fa fa-user-plus"></i>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-field">
+                <i class="fa fa-lock"></i>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-field">
+                <i class="fa fa-mobile"></i>
+                <label for="mobile">Mobile:</label>
+                <input type="tel" id="mobile" name="mobile" required>
+            </div>
+            <div class="input-field">
+                <i class="fa fa-mobile"></i>
+                <label for="alternate_mobile">Alternate Mobile:</label>
+                <input type="tel" id="alternate_mobile" name="alternate_mobile">
+            </div>
+            <div class="input-field">
+                <i class="fa fa-address-card"></i>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="input-field">
+                <i class="fa fa-address-card"></i>
+                <label for="alternate_address">Alternate Address:</label>
+                <input type="text" id="alternate_address" name="alternate_address">
+            </div>
+            <div class="input-field">
+                <i class="fa fa-calendar"></i>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="input-field">
+                <i class="fa fa-graduation-cap"></i>
+                <label for="qualifications">Qualifications:</label>
+                <input type="text" id="qualifications" name="qualifications">
+            </div>
+            <div class="input-field">
+                <i class="fa fa-briefcase"></i>
+                <label for="experience">Experience:</label>
+                <input type="text" id="experience" name="experience">
+            </div>
+            <div class="input-field">
+                <i class="fa fa-calendar"></i>
+                <label for="doj">Date of Joining:</label>
+                <input type="date" id="doj" name="doj">
+            </div>
+            <div class="input-field">
+                <i class="fa fa-calendar"></i>
+                <label for="dor">Date of Resignation:</label>
+                <input type="date" id="dor" name="dor">
+            </div>
+            <div class="input-field">
+                <i class="fa fa-calendar"></i>
+                <label for="last_working_day">Last Working Day:</label>
+                <input type="date" id="last_working_day" name="last_working_day">
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

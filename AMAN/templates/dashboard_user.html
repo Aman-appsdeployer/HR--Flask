@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+<style>
+    
+    .content {
+        margin-left: 50px;
+    }
+
+    .jumbotron {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .display-4 {
+        color: white;
+        background-color: gray;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .lead {
+        color: #6c757d;
+    }
+
+    .registration-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .registration-table th,
+    .registration-table td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #dee2e6;
+    }
+
+    .btn-center {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+        color: #0c5460;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    a {
+        display: block;
+        margin-top: 10px;
+        color: black;
+        margin-right: 400px;
+    }
+
+    body {
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    .btn-danger {
+        background-color: black;
+        border-color: black;
+        color: #fff;
+    }
+</style>
+
+<div class="container">
+    <div class="content">
+        {% if username %}
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome, {{ username }}!</h1>
+            <h2 class="lead"><h1>Your Registration Details:</h1></h2>
+
+            <table class="registration-table">
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>{{ registration_details[0] }}</td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>{{ registration_details[1] }}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{ registration_details[2] }}</td>
+                </tr>
+                <tr>
+                    <td>Mobile Number</td>
+                    <td>{{ registration_details[3] }}</td>
+                </tr>
+                <tr>
+                    <td>Alternate Mobile Number</td>
+                    <td>{{ registration_details[4] }}</td>
+                </tr>
+                <tr>
+                    <td>Alternate Address</td>
+                    <td>{{ registration_details[5] }}</td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td>{{ registration_details[6] }}</td>
+                </tr>
+                <tr>
+                    <td>Date of Joining</td>
+                    <td>{{ registration_details[7] }}</td>
+                </tr>
+                <tr>
+                    <td>Date of Registration</td>
+                    <td>{{ registration_details[8] }}</td>
+                </tr>
+                <tr>
+                    <td>Last Working Day</td>
+                    <td>{{ registration_details[9] }}</td>
+                </tr>
+                <tr>
+                    <td>Qualifications</td>
+                    <td>{{ registration_details[10] }}</td>
+                </tr>
+                <tr>
+                    <td>Profile Image</td>
+                    <td>{{ registration_details[12] }}</td>
+                </tr>
+            </table>
+            <form action="/logout" method="post" class="btn-center">
+                <button type="submit" class="btn btn-danger">Logout</button>
+                <p class=""> <a href="/issue">Need Help?</a></p>
+                <a href="/resignation_form">Click here to resign</a>
+                <a href ="leave_request_form">Click here to leave</a>
+            </form>
+        </div>
+        {% else %}
+        <div class="alert alert-info" role="alert">
+            Please log in to access the dashboard.
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

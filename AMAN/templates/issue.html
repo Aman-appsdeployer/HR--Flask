@@ -1,0 +1,359 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    background-color: #333;
+    color: white;
+    padding: 2px;
+}
+
+form {
+    width: 40%;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 35px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+</style>
+<body>
+    <h1> Sende Your Problems</h1>
+    <form method="POST" action="/issue">
+        <label for="your_name">Your Name:</label>
+        <input type="text" id="your_name" name="your_name" required><br>
+
+        <label for="to_email"> Enter Email:</label>
+        <input type="text" id="to_email" name="to_email" placeholder="Enter Hr Email" required><br>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br>
+
+        <label for="body">Message:</label>
+        <textarea id="body" name="body" required></textarea><br>
+
+        <input type="submit" value=" Submit">
+    </form>
+</body>
+</html> -->
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Send Your Problems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            margin-top: 0;
+            border-radius: 10px 10px 0 0;
+        }
+
+        form {
+            width: 60%;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 20px;
+            
+            
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; 
+        }
+        .input-icon {
+            position: relative;
+            margin-left: 25px;
+        }
+
+        .input-icon i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 18px; 
+        }
+
+
+        input[type="submit"] {
+            background-color: #333;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Send Your Problems</h1>
+    <form method="POST" action="/issue">
+        <i class="fas fa-user"></i>
+        <label for="your_name">Your Name:</label>
+        <div class="input-icon">
+            
+            <input type="text" id="your_name" name="your_name" placeholder="Enter your name" required>
+        </div>
+        <i class="fas fa-envelope"></i>
+        <label for="to_email">Enter Email:</label>
+        <div class="input-icon">
+            
+            <input type="text" id="to_email" name="to_email" placeholder="Enter HR Email" required>
+        </div>
+
+        <i class="fas fa-heading"></i>
+        <label for="subject">Subject:</label>
+        <div class="input-icon">
+            
+            <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+        </div>
+        
+        <i class="fas fa-comment"></i>
+        <label for="body">Message:</label>
+        <div class="input-icon">
+            
+            <textarea id="body" name="body" placeholder="Enter your message" rows="6" required></textarea>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+ -->
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Your Problems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Include Font Awesome CSS -->
+    <!-- <link rel="stylesheet" href="static/style.css">  -->
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html,body{
+  height: 100%;
+}
+
+body{
+  display: grid;
+  place-items: center;
+  background: #dde1e7;
+  text-align: center;
+}
+
+.content{
+  width: 430px;
+  padding: 40px 30px;
+  background: #dde1e7;
+  border-radius: 15px;
+  box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94,104,121,0.288);
+}
+
+.content .text{
+  font-size: 38px;
+  font-weight: 660;
+  margin-bottom: 35px;
+  color: #595959;
+}
+
+.field{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.field:nth-child(2){
+  margin-top: 20px;
+}
+
+.field input, .field textarea{
+  height: 100%;
+  width: 100%;
+  padding-left: 45px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  background: #dde1e7;
+  color: #595959;
+  border-radius: 25px;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #ffffff73;
+}
+
+.field input:focus, .field textarea:focus{
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #ffffff73;
+}
+
+.field span{
+  position: absolute;
+  color: #595959;
+  width: 50px;
+  line-height: 50px;
+}
+
+.field label{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 45px;
+  pointer-events: none;
+  color: #666666;
+}
+
+.field input:valid ~ label, .field textarea:valid ~ label{
+  opacity: 0;
+}
+
+button{
+  margin: 50px 10px 15px 10px;
+  width: 100%;
+  height: 80px;
+  font-size: 22px;
+  line-height: 50px;
+  font-weight: 600;
+  background: black;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #595959;
+  box-shadow: 2px 2px 5px #2451f5, -5px -5px 10px #ffffff73;
+}
+
+button:focus{
+  color: #3498db;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #ffffff73;
+}
+
+.sign-up{
+  margin: 10px 0;
+  color: #595959;
+  font-size: 16px;
+}
+
+.sign-up a{
+  color: #199ff9;
+  text-decoration: none;
+}
+
+.sign-up a:hover{
+  text-decoration: underline;
+}
+
+</style>
+<body>
+    <div class="content">
+        <div class="text">Send Your Problems</div>
+        <form method="POST" action="/issue">
+            <div class="field">
+                <span><i class="fas fa-user"></i></span>
+                <label for="your_name"></label>
+                <input type="text" id="your_name" name="your_name" placeholder="Enter your name" required>
+            </div>
+            <div class="field">
+                <span><i class="fas fa-envelope"></i></span>
+                <label for="to_email">:</label>
+                <input type="text" id="to_email" name="to_email" placeholder="Enter HR Email" required>
+            </div>
+            <div class="field">
+                <span><i class="fas fa-heading"></i></span>
+                <label for="subject"></label>
+                <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+            </div>
+            <div class="field">
+                <span><i class="fas fa-comment"></i></span>
+                <label for="body"></label>
+                <textarea id="body" name="body" placeholder="Enter your message" rows="6" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(40, 154, 189);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: rgb(40, 154, 189);
+            text-decoration: none;
+        }
+    </style>
+    <title>Logout</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Logout</h1>
+        {% if username %}
+        <p>{{ username }}, you have logged out.</p>
+        <p>To log in <a href="/">Click here</a></p>
+        <p>To register again/create new account <a id="hola" href="/register">Click Here</a></p>
+        {% else %}
+        <p>Logout unsuccessful.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

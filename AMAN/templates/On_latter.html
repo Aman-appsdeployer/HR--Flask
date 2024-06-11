@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* light gray */
+        }
+        .sidebar {
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 10px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border-bottom: 1px solid #555; /* dark gray */
+        }
+        .sidebar a:hover {
+            background-color: #555; /* dark gray */
+        }
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+        .resignation-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* dark gray */
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc; /* light gray */
+            border-radius: 4px;
+        }
+        .form-group button {
+            background-color:black; /* black */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #555; /* dark gray */
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="leave .html"> Your'sLeave </a>
+        <a href="attendance_regularization.html"> Your's Attendance</a>
+        <a href="logout.html">Logout</a>
+    </div>
+    <div class="content">
+        <div class="resignation-form">
+            <h2>Resignation Form</h2>
+            <form action="/submit_resignation" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="position">Position:</label>
+                    <input type="text" id="position" name="position" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason to Resign:</label>
+                    <textarea id="reason" name="reason" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="assets_taken">Any Assets Taken from the Company:</label>
+                    <select id="assets_taken" name="assets_taken" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group" id="assets_list" style="display: none;">
+                    <label for="assets_list">Which Assets Taken:</label>
+                    <input type="text" id="assets_list" name="assets_list">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('assets_taken').addEventListener('change', function() {
+            var assetsList = document.getElementById('assets_list');
+            if (this.value === 'yes') {
+                assetsList.style.display = 'block';
+            } else {
+                assetsList.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

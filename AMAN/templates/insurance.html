@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Portal - Insurance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+header {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 15px ;
+}
+ footer{
+    background-color:black;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 150px;
+ }
+
+header h1 {
+    font-size: 2em;
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #343a40;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.plan-amount {
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.plan-amount:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#total-amount {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+#total {
+    font-weight: bold;
+    color: #007bff;
+}
+
+</style>
+<body>
+    <header>
+        <h1>Insurance Benefits</h1>
+    </header>
+    <section id="insurance-plans">
+        <h2>Insurance Plans</h2>
+        <ul id="insurance-list">
+            <li><span>Medical Insurance ₹:</span><input type="number" class="plan-amount"></li>
+            
+            <li><span>Life Insurance ₹:</span><input type="number" class="plan-amount"></li>
+        </ul>
+        <p id="total-amount">Total Amount: <span id="total">0</span></p>
+    </section>
+    <footer>
+        <p>&copy; 2024 HR Portal. All rights reserved.</p>
+    </footer>
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+    const planAmountInputs = document.querySelectorAll(".plan-amount");
+    const totalAmountDisplay = document.getElementById("total");
+
+    function calculateTotalAmount() {
+        let totalAmount = 0;
+        planAmountInputs.forEach(function(input) {
+            totalAmount += parseFloat(input.value) || 0; // Ensure that empty values are treated as 0
+        });
+        return totalAmount.toFixed(2);
+    }
+
+    function updateTotalAmount() {
+        totalAmountDisplay.textContent = calculateTotalAmount();
+    }
+
+    // Calculate and display total amount when the page loads
+    updateTotalAmount();
+
+    // Update total amount whenever the input values change
+    planAmountInputs.forEach(function(input) {
+        input.addEventListener("input", updateTotalAmount);
+    });
+});
+ 
+    </script>
+</body>
+</html>

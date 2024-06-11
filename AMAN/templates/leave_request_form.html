@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave Request Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+   
+body {
+  background-color: #dde1e7;
+  color: #595959;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  background: #dde1e7;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.container .content {
+  width: 430px;
+  padding: 40px 30px;
+  background: #dde1e7;
+  border-radius: 15px;
+  box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
+}
+
+.container .content .text {
+  font-size: 38px;
+  font-weight: 660;
+  margin-bottom: 35px;
+  color: #595959;
+}
+
+.container .field {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.container .field:nth-child(2) {
+  margin-top: 20px;
+}
+
+.container .field input {
+  height: 100%;
+  width: 100%;
+  padding-left: 45px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  background: #dde1e7;
+  color: #595959;
+  border-radius: 25px;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #ffffff73;
+}
+
+.container .field input:focus {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #ffffff73;
+}
+
+.container .field span {
+  position: absolute;
+  color: #595959;
+  width: 50px;
+  line-height: 50px;
+}
+
+.container .field label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 45px;
+  pointer-events: none;
+  color: #666666;
+}
+
+.container .field input:valid ~ label {
+  opacity: 0;
+}
+
+.container .forgot-pass {
+  text-align: left;
+  margin: 10px 0 10px 5px;
+}
+
+.container .forgot-pass a {
+  font-size: 16px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.container .forgot-pass:hover a {
+  text-decoration: underline;
+}
+
+.container button {
+  margin: 50px 10px 15px 10px;
+  width: 100%;
+  height: 60px;
+  font-size: 22px;
+  line-height: 60px;
+  font-weight: 600;
+  background: black;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 2px 2px 5px #2451f5, -5px -5px 10px #ffffff73;
+}
+
+.container button:focus {
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #ffffff73;
+}
+
+.container .sign-up {
+  margin: 10px 0;
+  color: #595959;
+  font-size: 16px;
+}
+
+.container .sign-up a {
+  color: #199ff9;
+  text-decoration: none;
+}
+
+.container .sign-up a:hover {
+  text-decoration: underline;
+}
+
+/* Additional CSS */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #333;
+  color: white;
+}
+
+h1 {
+  color: #fff;
+}
+
+label {
+  color: #ccc;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  background-color: #666;
+  color: white;
+}
+
+.container .field select {
+  height: 100%;
+  width: calc(100% - 30px);
+  padding-left: 15px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  background: #dde1e7;
+  color: #595959;
+  border-radius: 25px;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #ffffff73;
+}
+
+.container .field select:focus {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #ffffff73;
+}
+
+.container button[type="button"] {
+  background-color: black;
+  border-color: gray;
+  margin-left: 0; /* Adjust margin */
+  margin-top: 20px; /* Adjust margin */
+}
+
+.container button[type="button"]:hover {
+  background-color: gray;
+  border-color: black;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="content">
+      <h1 class="text">Leave Request Form</h1>
+      <form id="leaveForm" method="post">
+
+        <div class="field">
+          <input type="text" id="employeeName" name="employeeName" required>
+          <label for="employeeName">Employee Name:</label>
+        </div>
+
+        <div class="field">
+          <input type="text" id="employeeMail" name="employeeMail" required>
+          <label for="employeeMail">Employee Email:</label>
+        </div>
+
+        <div class="field">
+          <select id="leaveType" name="leaveType" required>
+            <option value="vacation">Vacation</option>
+            <option value="sick">Sick Leave</option>
+            <option value="personal">Personal Leave</option>
+          </select>
+          <label for="leaveType"></label>
+        </div>
+
+        <div class="field">
+          <input type="date" id="startDate" name="startDate" required>
+          <label for="startDate">Start Date:</label>
+        </div>
+
+        <div class="field">
+          <input type="date" id="endDate" name="endDate" required>
+          <label for="endDate">End Date:</label>
+        </div>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script>
+    function submitForm() {
+      event.preventDefault();
+
+      const form = $('#leaveForm')[0];
+      const formData = new FormData(form);
+
+      $.ajax({
+        url: '/submit_leave',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          alert('Your leave request has been sent for approval');
+          window.location.href = '/dashboard';
+        },
+        error: function(error) {
+          alert('Error submitting leave request. Please try again.');
+          console.error('Error submitting leave request:', error);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

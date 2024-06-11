@@ -1,0 +1,124 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Approval List</title>
+</head>
+<style>
+    h1{
+        margin-left: 50px;
+    }
+    th{
+        margin: 10px;
+        padding: 10px;
+    }
+</style>
+<body>
+    <h1>Leave Approval List</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Employee Name</th>
+            <th>Leave Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        {% for request in leave_requests %}
+        <tr>
+            <td>{{ request.id }}</td>
+            <td>{{ request.employee_name }}</td>
+            <td>{{ request.leave_type }}</td>
+            <td>{{ request.start_date }}</td>
+            <td>{{ request.end_date }}</td>
+            <td>{{ request.email }}</td>
+            <td>
+                {% if request.status == 'Pending' %}
+                <a href="{{ url_for('approve_leave', request_email=request.email) }}">Accept</a>
+                <a href="{{ url_for('decline_leave', request_email=request.email) }}">Decline</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Approval List</title>
+    <style>
+        body {
+            background-color: #f2f2f2; /* Light gray background */
+            color: #000000; /* Black text */
+        }
+
+        h1 {
+            margin-left: 350px;
+            text-decoration: underline;
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff; 
+            color: #000000; 
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #000000; 
+            color: #ffffff; 
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light gray background for even rows */
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff; /* White background for odd rows */
+        }
+    </style>
+</head>
+<body>
+    <h1>Leave Approval List</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Employee Name</th>
+            <th>Leave Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        {% for request in leave_requests %}
+        <tr>
+            <td>{{ request.id }}</td>
+            <td>{{ request.employee_name }}</td>
+            <td>{{ request.leave_type }}</td>
+            <td>{{ request.start_date }}</td>
+            <td>{{ request.end_date }}</td>
+            <td>{{ request.email }}</td>
+            <td>
+                {% if request.status == 'Pending' %}
+                <a href="{{ url_for('approve_leave', request_email=request.email) }}">Accept</a>
+                <a href="{{ url_for('decline_leave', request_email=request.email) }}">Decline</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

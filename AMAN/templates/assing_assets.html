@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Asset Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .employee-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .employee-list h2{
+            align-items: center;
+        } 
+
+        .employee-list li {
+            margin-bottom: 10px;
+            background-color: #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .employee-list li:hover {
+            background-color: #ccc;
+        }
+
+        .assign-form {
+            display: none;
+            flex-direction: column;
+        }
+
+        .assign-form label {
+            margin-bottom: 5px;
+        }
+
+        .assign-form input[type="text"] {
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .assign-form button {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .assign-form button:hover {
+            background-color: #555;
+        }
+
+        .assigned-assets {
+            margin-top: 20px;
+        }
+
+        .assigned-assets table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .assigned-assets th,
+        .assigned-assets td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .assigned-assets th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .assigned-assets tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Company Asset Assignment</h1>
+    </header>
+    <section id="employee-list-section">
+        <h2>Select Your's Employee</h2>
+        <ul class="employee-list" id="employee-list">
+            <li onclick="showAssignForm('Allen')">Allen</li>
+            <li onclick="showAssignForm('Roshan')">Roshan</li>
+            <li onclick="showAssignForm('Aman')">Aman</li>
+            <li onclick="showAssignForm('Shubham')">Shubham</li>
+            <li onclick="showAssignForm('Tejas')">Tejas</li>
+            <li onclick="showAssignForm('Devansh')">Devansh</li>
+            <li onclick="showAssignForm('Pravin')">Pravin</li>
+            <li onclick="showAssignForm('Aditya')">Aditya</li>
+            <li onclick="showAssignForm('Arya')">Arya</li>
+            <li onclick="showAssignForm('Sandeep')">Sandeep</li>
+            <li onclick="showAssignForm('Shivam')">Shivam</li>
+            <li onclick="showAssignForm('Deepu')">Deepu</li>
+            <li onclick="showAssignForm('Shyam')">Shyam</li>
+            
+        </ul>
+    </section>
+    <section>
+        <h2 >Assign Asset</h2>
+        <form class="assign-form" id="assign-form">
+            <label for="selected-employee">Selected Employee:</label>
+            <input type="text" id="selected-employee" name="selected-employee" readonly>
+            <label for="asset">Select Asset:</label>
+            <select id="asset" name="asset">
+                <option value="laptop">Laptop</option>
+                <option value="desktop">Desktop Computer</option>
+                <option value="projector">Projector</option>
+                <option value="printer">Printer</option>
+                <option value="phone">Mobile Phone</option>
+                <option value="mouse">Mouse</option>
+                <option value="keyboard">Keyboard</option>
+                <option value="WiFi">WiFi</option>
+                
+                
+            </select>
+            <button type="submit">Assign</button>
+        </form>
+    </section>
+    <section class="assigned-assets">
+        <!-- <h2>Assigned Assets</h2> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Asset</th>
+                    <th>Assigned To</th>
+                    <th>Date Assigned</th>
+                </tr>
+            </thead>
+            <tbody id="assigned-assets-table-body">
+                <!-- Assigned assets will be added dynamically here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        function showAssignForm(employeeName) {
+            document.getElementById('selected-employee').value = employeeName;
+            document.getElementById('employee-list-section').style.display = 'none';
+            document.getElementById('assign-form').style.display = 'flex';
+        }
+
+        document.getElementById('assign-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var asset = document.getElementById('asset').value;
+            var employee = document.getElementById('selected-employee').value;
+            var dateAssigned = new Date().toLocaleDateString();
+
+            // Store the assigned asset locally (you can replace this with your own storage method)
+            var assignedAssets = localStorage.getItem('assignedAssets') ? JSON.parse(localStorage.getItem('assignedAssets')) : [];
+            assignedAssets.push({ asset: asset, employee: employee, dateAssigned: dateAssigned });
+            localStorage.setItem('assignedAssets', JSON.stringify(assignedAssets));
+
+            // Optionally, you can display a message or update the UI to reflect the assignment
+            alert('Asset assigned successfully!');
+            resetForm();
+            displayAssignedAssets();
+        });
+
+        function resetForm() {
+            document.getElementById('assign-form').reset();
+            document.getElementById('employee-list-section').style.display = 'block';
+            document.getElementById('assign-form').style.display = 'none';
+        }
+
+        function displayAssignedAssets() {
+            var assignedAssets = JSON.parse(localStorage.getItem('assignedAssets')) || [];
+
+            var tableBody = document.getElementById('assigned-assets-table-body');
+            tableBody.innerHTML = '';
+
+            assignedAssets.forEach(function(item) {
+                var row = tableBody.insertRow();
+                var assetCell = row.insertCell(0);
+                var employeeCell = row.insertCell(1);
+                var dateCell = row.insertCell(2);
+
+                assetCell.textContent = item.asset;
+                employeeCell.textContent = item.employee;
+                dateCell.textContent = item.dateAssigned;
+            });
+        }
+
+       
+        displayAssignedAssets();
+    </script>
+</body>
+</html>
+
+

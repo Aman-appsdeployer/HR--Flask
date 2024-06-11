@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,600,500,400,300" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+  <script src="static/tiss.js" defer></script>
+  <link rel="stylesheet" href="static/main.css" />
+</head>
+<style>
+  
+</style>
+<body>
+  <div class="container">
+    <!-- start header -->
+    <section class="main">
+      <div class="header">
+        <div class="logo">
+          <i class="fa fa-tachometer"></i>
+          <span>HR Portal</span>
+        </div>
+        <a href="#" class="nav-trigger"><span></span></a>
+      </div>
+      <div class="side-nav">
+        <div class="logo">
+          <i class="fa fa-tachometer"></i>
+          <span>Assets Panel</span>
+        </div>
+        <nav>
+          <ul>
+
+            
+
+            <li class="tablinks" onclick="openTab(event, '/asset-life')">
+              <a href="/asset-life">
+                  <span><i class="#"></i></span>
+                  <span>Assets Life Cycle</span>
+              </a>
+          </li>
+          
+          <li class="tablinks" onclick="openTab(event, '/assing_assets')">
+            <a href="/assing_assets">
+                <span><i class="fas fa-tasks"></i></span>
+                <span>Assigning Assets</span>
+            </a>
+        </li>
+        
+            
+            <li class="tablinks"onclick="openTab(event, '')">
+              <a href="/templates/login.html">
+                <!-- <span><i class="fas fa-sign-out-alt"></i></span> -->
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+              <form action=" /logout " method="post" class="btn-center">
+            <button type="submit" class=""></button>
+        </form> 
+      </div>
+    
+      <div class="main-content" id="dash">
+        
+        <div class="main tabcontent"></div>
+      </div>
+      <!-- end dash -->
+    </section>
+  </div>
+</body>
+<script>
+  function viewLeaveRequests() {
+      window.location.href = '/leave_approval_list';  // Update the URL
+  }
+</script>
+</html>

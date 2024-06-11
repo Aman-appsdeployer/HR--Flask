@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offboarding Page</title>
+</head>
+<body>
+    <h1>Offboarding Page</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Position</th>
+                <th>Reason</th>
+                <th>Assets Taken</th>
+                <th>fffs</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resignation in resignations %}
+            <tr>
+                <td>{{ resignation['name'] }}</td>
+                <td>{{ resignation['email'] }}</td>
+                <td>{{ resignation['position'] }}</td>
+                <td>{{ resignation['reason'] }}</td>
+                <td>{{ resignation['assets_taken'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

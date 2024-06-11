@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resignation Page</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='offboarding.css') }}">
+</head>
+<body>
+    <h1>Resignation Page</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Position</th>
+                <th>Reason</th>
+                <th>Assets Taken</th>
+                <th>Assets Taken List</th>
+
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resignation in resignations %}
+            <tr>
+                <td>{{ resignation['name'] }}</td>
+                <td>{{ resignation['email'] }}</td>
+                <td>{{ resignation['position'] }}</td>
+                <td>{{ resignation['reason'] }}</td>
+                <td>{{ resignation['assets_taken'] }}</td>
+                <td>{{ resignation['assets_list'] }}</td>
+                <td>
+                    <form action="/accept_resignation" method="post">
+                        <input type="hidden" name="resignation_id" value="{{ resignation['id'] }}">
+                        <input type="hidden" name="email" value="{{ resignation['email'] }}">
+                        <button type="submit">Accept</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

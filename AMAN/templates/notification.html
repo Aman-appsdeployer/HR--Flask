@@ -1,0 +1,25 @@
+<!-- notifications.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+</head>
+<body>
+
+<h1>Pending Leave Requests</h1>
+
+{% if pending_leave_requests %}
+    <ul>
+        {% for request in pending_leave_requests %}
+            <li>{{ request.employee_name }} - {{ request.leave_type }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No pending leave requests</p>
+{% endif %}
+
+</body>
+</html>

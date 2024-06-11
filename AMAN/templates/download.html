@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Salary PDF Files</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='download_style.css') }}">
+    <style>
+        /* making responsive */
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 14px; 
+            }
+
+            
+            h1 {
+                text-align: center;
+            }
+
+            
+            .download-list-item {
+                padding: 8px;
+                font-size: 16px;
+            }
+
+            
+            .download-link {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Download Salary PDF Files</h1>
+    <ul class="download-list">
+        {% for user in users %}
+            <li class="download-list-item">
+                <a href="{{ url_for('download_salary_slip', user_id=user.id) }}" class="download-link">
+                    {{ user.name }}'s Salary PDF
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

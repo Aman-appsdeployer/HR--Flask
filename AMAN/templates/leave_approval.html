@@ -1,0 +1,52 @@
+<!-- leave_approval.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Add necessary meta tags, title, and CSS links -->
+</head>
+<body>
+
+<div class="container">
+  <h1 class="text-center">Leave Approval</h1>
+  <p>Employee Name: {{ leave_request.employee_name }}</p>
+  <p>Employee ID: {{ leave_request.employee_id }}</p>
+  <p>Leave Type: {{ leave_request.leave_type }}</p>
+  <p>Start Date: {{ leave_request.start_date }}</p>
+  <p>End Date: {{ leave_request.end_date }}</p>
+  <p>Status: {{ leave_request.status }}</p>
+
+
+  <form action="/approve_leave/{{ leave_request_id }}" method="post">
+    <button type="submit" class="btn btn-success">Approve</button>
+  </form>
+
+  <form action="/reject_leave/{{ leave_request_id }}" method="post">
+    <button type="submit" class="btn btn-danger">Reject</button>
+  </form>
+</div>
+
+</body>
+</html>
+<!-- @app.route('/leave_approval/<int:leave_request_id>', methods=['GET', 'POST'])
+def leave_approval(leave_request_id):
+    if 'user_id' in session and session['user_id'] in team_leader_hr_ids:
+        # Fetch leave request details from the database
+        cursor.execute("SELECT * FROM leave_requests WHERE id = %s", (leave_request_id,))
+        leave_request = cursor.fetchone()
+
+        if leave_request:
+            if request.method == 'POST':
+                # Update leave request status based on the approval decision
+                new_status = request.form['approval_decision']
+                cursor.execute("UPDATE leave_requests SET status = %s WHERE id = %s", (new_status, leave_request_id))
+                db.commit()
+
+                flash('Leave request status updated successfully!', 'success')
+                return redirect('/leave_approval_list')  # Redirect to the leave approval list page
+
+            return render_template('leave_approval.html', leave_request=leave_request, leave_request_id=leave_request_id)
+        else:
+            return "Leave request not found"
+    else:
+        return redirect('/') -->

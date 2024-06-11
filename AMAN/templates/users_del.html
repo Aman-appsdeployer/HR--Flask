@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offboarding Page</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='offboarding.css') }}">
+</head>
+<body>
+    <h1>Empoyees List</h1>
+    <table border="3">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>experience</th>
+                <th>Qulafication</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in user_details %}
+            <tr>
+                <td>{{ user['name'] }}</td>
+                <td>{{ user['last_name'] }}</td>
+                <td>{{ user['address'] }}</td>
+                <td>{{ user['username'] }}</td>
+                <td>{{ user['experience'] }}</td>
+                <td>{{ user['qualifications'] }}</td>
+                
+
+                <td>
+                    <form action="/users_del" method="post">
+                        <input type="hidden" name="email" value="{{ user['email'] }}">
+                        <button type="submit">Accept</button>
+                    </form>
+                    
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>
